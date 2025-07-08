@@ -11,12 +11,12 @@ use Exception;
 class HeadOfFamilyRepository implements HeadOfFamilyRepositoryInterface
 {
     public function getAll(
-        ?string $search, 
-        ?int $limit, 
+        ?string $search,
+        ?int $limit,
         bool $execute
     ) {
         $query = HeadOfFamily::where(function ($query) use ($search) {
-            if ($search) { 
+            if ($search) {
                 $query->search($search);
             }
         });
@@ -24,12 +24,10 @@ class HeadOfFamilyRepository implements HeadOfFamilyRepositoryInterface
         $query->orderBy('created_at','desc');
 
         if ($limit) {
-            //Mengambil beberapa berdasarkan limit
             $query->take($limit);
         }
 
         if ($execute) {
-            //Mengambil beberapa berdasarkan limit
             return $query->get();
         }
 
@@ -37,14 +35,14 @@ class HeadOfFamilyRepository implements HeadOfFamilyRepositoryInterface
     }
 
     public function getAllPaginated(
-        ?string $search, 
+        ?string $search,
         ?int $rowPerPage
     ){
       $query = $this->getAll(
         $search,
         $rowPerPage,
         false
-      );  
+      );
 
       return $query->paginate($rowPerPage);
     }
@@ -79,9 +77,9 @@ class HeadOfFamilyRepository implements HeadOfFamilyRepositoryInterface
             $headOfFamily->phone_number = $data['phone_number'];
             $headOfFamily->occupation = $data['occupation'];
             $headOfFamily->marital_status = $data['marital_status'];
-          
+
             $headOfFamily->save();
-            
+
             DB::commit();
             return $headOfFamily;
 
@@ -110,13 +108,13 @@ class HeadOfFamilyRepository implements HeadOfFamilyRepositoryInterface
             $headOfFamily->occupation = $data['occupation'];
             $headOfFamily->marital_status = $data['marital_status'];
             $headOfFamily->save();
-            
+
             $userRepository = new UserRepository;
 
             $userRepository->update($headOfFamily->user_id, [
                 'name' => $data['name'],
                 'email' => $data['email'],
-                'password' => isset( $data['password']) ? bcrypt($data['password']) : $headOfFamily->user->password 
+                'password' => isset( $data['password']) ? bcrypt($data['password']) : $headOfFamily->user->password
             ]);
 
             DB::commit();
@@ -137,7 +135,7 @@ class HeadOfFamilyRepository implements HeadOfFamilyRepositoryInterface
             $headOfFamily = HeadOfFamily::find($id) ;
 
             $headOfFamily->delete();
-            
+
             DB::commit();
             return $headOfFamily;
 

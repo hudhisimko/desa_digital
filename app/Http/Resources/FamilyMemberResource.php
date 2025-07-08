@@ -2,15 +2,17 @@
 
 namespace App\Http\Resources;
 
+use App\Models\HeadOfFamily;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class HeadOfFamilyResource extends JsonResource
+class FamilyMemberResource extends JsonResource
 {
     public function toArray($request)
     {
-        return [
+       return [
             'id' => $this->id,
+            'head_of_family' => new HeadOfFamilyResource($this->whenLoaded('headOfFamily')),
             'user' => new UserResource($this->user),
             'profile_picture' => $this->profile_picture,
             'identity_number' => $this->identity_number,
@@ -19,7 +21,8 @@ class HeadOfFamilyResource extends JsonResource
             'phone_number' => $this->phone_number,
             'occupation' => $this->occupation,
             'marital_status' => $this->marital_status,
-            'family_members' => FamilyMemberResource::collection($this->familyMember)
+            'relation' => $this->relation
         ];
     }
+
 }
