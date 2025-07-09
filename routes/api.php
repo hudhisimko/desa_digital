@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\HeadOfFamilyController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -11,6 +12,7 @@ Route::get('user/all/paginated', [UserController::class, 'getAllPaginated']);
 Route::apiResource('head-of-family', HeadOfFamilyController::class);
 Route::get('head-of-family/all/paginated', [HeadOfFamilyController::class, 'getAllPaginated']);
 
-// Route::get('/user', function (Request $request) {
-//     return $request->user();
-// })->middleware('auth:sanctum');
+
+Route::apiResource('event', EventController::class);
+Route::get('event/all/paginated', [EventController::class,'getAllPaginated']);
+Route::get('/event', [EventController::class, 'index']);
