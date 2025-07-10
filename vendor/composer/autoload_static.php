@@ -595,19 +595,48 @@ class ComposerStaticInit88970a0117c062eed55fa8728fc43833
     public static $classMap = array (
         'App\\Helpers\\ResponseHelper' => __DIR__ . '/../..' . '/app/Helpers/ResponseHelper.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+
         'App\\Http\\Controllers\\HeadOfFamilyController' => __DIR__ . '/../..' . '/app/Http/Controllers/HeadOfFamilyController.php',
         'App\\Http\\Controllers\\SocialAssistanceController' => __DIR__ . '/../..' . '/app/Http/Controllers/SocialAssistanceController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
+
+        'App\\Http\\Controllers\\EventController' => __DIR__ . '/../..' . '/app/Http/Controllers/EventController.php',
+        'App\\Http\\Controllers\\HeadOfFamilyController' => __DIR__ . '/../..' . '/app/Http/Controllers/HeadOfFamilyController.php',
+        'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
+        'App\\Http\\Requests\\EventStoreRequest' => __DIR__ . '/../..' . '/app/Http/Requests/EventStoreRequest.php',
+        'App\\Http\\Requests\\EventUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/EventUpdateRequest.php',
+
+        'App\\Http\\Controllers\\FamilyMemberController' => __DIR__ . '/../..' . '/app/Http/Controllers/FamilyMemberController.php',
+        'App\\Http\\Controllers\\HeadOfFamilyController' => __DIR__ . '/../..' . '/app/Http/Controllers/HeadOfFamilyController.php',
+        'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
+
+
         'App\\Http\\Requests\\HeadOfFamilyStoreRequest' => __DIR__ . '/../..' . '/app/Http/Requests/HeadOfFamilyStoreRequest.php',
         'App\\Http\\Requests\\HeadOfFamilyUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/HeadOfFamilyUpdateRequest.php',
         'App\\Http\\Requests\\UserStoreRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UserStoreRequest.php',
         'App\\Http\\Requests\\UserUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UserUpdateRequest.php',
+
+
+        'App\\Http\\Resources\\EventResource' => __DIR__ . '/../..' . '/app/Http/Resources/EventResource.php',
+
         'App\\Http\\Resources\\HeadOfFamilyResource' => __DIR__ . '/../..' . '/app/Http/Resources/HeadOfFamilyResource.php',
         'App\\Http\\Resources\\PaginateResource' => __DIR__ . '/../..' . '/app/Http/Resources/PaginateResource.php',
         'App\\Http\\Resources\\SocialAssistanceResource' => __DIR__ . '/../..' . '/app/Http/Resources/SocialAssistanceResource.php',
         'App\\Http\\Resources\\UserResource' => __DIR__ . '/../..' . '/app/Http/Resources/UserResource.php',
+
         'App\\Interfaces\\HeadOfFamilyRepositoryInterface' => __DIR__ . '/../..' . '/app/Interfaces/HeadOfFamilyRepositoryInterface.php',
         'App\\Interfaces\\SocialAssistanceRepositoryInterface' => __DIR__ . '/../..' . '/app/Interfaces/SocialAssistanceRepositoryInterface.php',
+
+        'App\\Interfaces\\EventRepositoryInterface' => __DIR__ . '/../..' . '/app/Interfaces/EventRepositoryInterface.php',
+
+        'App\\Http\\Resources\\FamilyMemberResource' => __DIR__ . '/../..' . '/app/Http/Resources/FamilyMemberResource.php',
+        'App\\Http\\Resources\\HeadOfFamilyResource' => __DIR__ . '/../..' . '/app/Http/Resources/HeadOfFamilyResource.php',
+        'App\\Http\\Resources\\PaginateResource' => __DIR__ . '/../..' . '/app/Http/Resources/PaginateResource.php',
+        'App\\Http\\Resources\\UserResource' => __DIR__ . '/../..' . '/app/Http/Resources/UserResource.php',
+        'App\\Interfaces\\FamilyMemberRepositoryInterface' => __DIR__ . '/../..' . '/app/Interfaces/FamilyMemberRepositoryInterface.php',
+
+        'App\\Interfaces\\HeadOfFamilyRepositoryInterface' => __DIR__ . '/../..' . '/app/Interfaces/HeadOfFamilyRepositoryInterface.php',
+
         'App\\Interfaces\\UserRepositoryInterface' => __DIR__ . '/../..' . '/app/Interfaces/UserRepositoryInterface.php',
         'App\\Models\\Development' => __DIR__ . '/../..' . '/app/Models/Development.php',
         'App\\Models\\DevelopmentApplicant' => __DIR__ . '/../..' . '/app/Models/DevelopmentApplicant.php',
@@ -622,8 +651,17 @@ class ComposerStaticInit88970a0117c062eed55fa8728fc43833
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\RepositoryServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RepositoryServiceProvider.php',
+
         'App\\Repositories\\HeadOfFamilyRepository' => __DIR__ . '/../..' . '/app/Repositories/HeadOfFamilyRepository.php',
         'App\\Repositories\\SocialAssistanceRepository' => __DIR__ . '/../..' . '/app/Repositories/SocialAssistanceRepository.php',
+
+
+        'App\\Repositories\\EventRepository' => __DIR__ . '/../..' . '/app/Repositories/EventRepository.php',
+
+        'App\\Repositories\\FamilyMemberRepository' => __DIR__ . '/../..' . '/app/Repositories/FamilyMemberRepository.php',
+
+        'App\\Repositories\\HeadOfFamilyRepository' => __DIR__ . '/../..' . '/app/Repositories/HeadOfFamilyRepository.php',
+
         'App\\Repositories\\UserRepository' => __DIR__ . '/../..' . '/app/Repositories/UserRepository.php',
         'App\\Traits\\UUID' => __DIR__ . '/../..' . '/app/Traits/UUID.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
@@ -743,12 +781,30 @@ class ComposerStaticInit88970a0117c062eed55fa8728fc43833
         'Cron\\HoursField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/HoursField.php',
         'Cron\\MinutesField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
+
         'Database\\Factories\\HeadOfFamilyFactory' => __DIR__ . '/../..' . '/database/factories/HeadOfFamilyFactory.php',
         'Database\\Factories\\SocialAssistanceFactory' => __DIR__ . '/../..' . '/database/factories/SocialAssistanceFactory.php',
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
         'Database\\Seeders\\HeadOfFamilySeeder' => __DIR__ . '/../..' . '/database/seeders/HeadOfFamilySeeder.php',
         'Database\\Seeders\\SocialAssistanceSeeder' => __DIR__ . '/../..' . '/database/seeders/SocialAssistanceSeeder.php',
+
+
+        'Database\\Factories\\EventFactory' => __DIR__ . '/../..' . '/database/factories/EventFactory.php',
+        'Database\\Factories\\HeadOfFamilyFactory' => __DIR__ . '/../..' . '/database/factories/HeadOfFamilyFactory.php',
+        'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
+        'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
+        'Database\\Seeders\\EventSeeder' => __DIR__ . '/../..' . '/database/seeders/EventSeeder.php',
+        'Database\\Seeders\\HeadOfFamilySeeder' => __DIR__ . '/../..' . '/database/seeders/HeadOfFamilySeeder.php',
+        'Database\\Seeders\\SocialAssistanceSeeder' => __DIR__ . '/../..' . '/database/seeders/SocialAssistanceSeeder.php',
+
+        'Database\\Factories\\FamilyMemberFactory' => __DIR__ . '/../..' . '/database/factories/FamilyMemberFactory.php',
+        'Database\\Factories\\HeadOfFamilyFactory' => __DIR__ . '/../..' . '/database/factories/HeadOfFamilyFactory.php',
+        'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
+        'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
+        'Database\\Seeders\\HeadOfFamilySeeder' => __DIR__ . '/../..' . '/database/seeders/HeadOfFamilySeeder.php',
+
+
         'Database\\Seeders\\UserSeeder' => __DIR__ . '/../..' . '/database/seeders/UserSeeder.php',
         'DateError' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateError.php',
         'DateException' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateException.php',
