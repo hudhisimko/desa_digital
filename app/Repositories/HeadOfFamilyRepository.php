@@ -11,12 +11,21 @@ use Exception;
 class HeadOfFamilyRepository implements HeadOfFamilyRepositoryInterface
 {
     public function getAll(
+<<<<<<< HEAD
         ?string $search, 
         ?int $limit, 
         bool $execute
     ) {
         $query = HeadOfFamily::where(function ($query) use ($search) {
             if ($search) { 
+=======
+        ?string $search,
+        ?int $limit,
+        bool $execute
+    ) {
+        $query = HeadOfFamily::where(function ($query) use ($search) {
+            if ($search) {
+>>>>>>> 851a6ebf494b04cd710262de18112042ddbb9bfb
                 $query->search($search);
             }
         });
@@ -24,12 +33,18 @@ class HeadOfFamilyRepository implements HeadOfFamilyRepositoryInterface
         $query->orderBy('created_at','desc');
 
         if ($limit) {
+<<<<<<< HEAD
             //Mengambil beberapa berdasarkan limit
+=======
+>>>>>>> 851a6ebf494b04cd710262de18112042ddbb9bfb
             $query->take($limit);
         }
 
         if ($execute) {
+<<<<<<< HEAD
             //Mengambil beberapa berdasarkan limit
+=======
+>>>>>>> 851a6ebf494b04cd710262de18112042ddbb9bfb
             return $query->get();
         }
 
@@ -37,14 +52,22 @@ class HeadOfFamilyRepository implements HeadOfFamilyRepositoryInterface
     }
 
     public function getAllPaginated(
+<<<<<<< HEAD
         ?string $search, 
+=======
+        ?string $search,
+>>>>>>> 851a6ebf494b04cd710262de18112042ddbb9bfb
         ?int $rowPerPage
     ){
       $query = $this->getAll(
         $search,
         $rowPerPage,
         false
+<<<<<<< HEAD
       );  
+=======
+      );
+>>>>>>> 851a6ebf494b04cd710262de18112042ddbb9bfb
 
       return $query->paginate($rowPerPage);
     }
@@ -79,9 +102,15 @@ class HeadOfFamilyRepository implements HeadOfFamilyRepositoryInterface
             $headOfFamily->phone_number = $data['phone_number'];
             $headOfFamily->occupation = $data['occupation'];
             $headOfFamily->marital_status = $data['marital_status'];
+<<<<<<< HEAD
           
             $headOfFamily->save();
             
+=======
+
+            $headOfFamily->save();
+
+>>>>>>> 851a6ebf494b04cd710262de18112042ddbb9bfb
             DB::commit();
             return $headOfFamily;
 
@@ -110,13 +139,21 @@ class HeadOfFamilyRepository implements HeadOfFamilyRepositoryInterface
             $headOfFamily->occupation = $data['occupation'];
             $headOfFamily->marital_status = $data['marital_status'];
             $headOfFamily->save();
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> 851a6ebf494b04cd710262de18112042ddbb9bfb
             $userRepository = new UserRepository;
 
             $userRepository->update($headOfFamily->user_id, [
                 'name' => $data['name'],
                 'email' => $data['email'],
+<<<<<<< HEAD
                 'password' => isset( $data['password']) ? bcrypt($data['password']) : $headOfFamily->user->password 
+=======
+                'password' => isset( $data['password']) ? bcrypt($data['password']) : $headOfFamily->user->password
+>>>>>>> 851a6ebf494b04cd710262de18112042ddbb9bfb
             ]);
 
             DB::commit();
@@ -137,7 +174,11 @@ class HeadOfFamilyRepository implements HeadOfFamilyRepositoryInterface
             $headOfFamily = HeadOfFamily::find($id) ;
 
             $headOfFamily->delete();
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> 851a6ebf494b04cd710262de18112042ddbb9bfb
             DB::commit();
             return $headOfFamily;
 
@@ -148,4 +189,8 @@ class HeadOfFamilyRepository implements HeadOfFamilyRepositoryInterface
         }
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 851a6ebf494b04cd710262de18112042ddbb9bfb
