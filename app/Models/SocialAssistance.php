@@ -19,4 +19,20 @@ class SocialAssistance extends Model
         'description',
         'is_available',
     ];
+
+    protected $casts = [
+        'is_available' => 'boolean'
+    ];
+
+    public function scopeSearch($query, $search)
+    {
+        return $query->where('name', 'like', '%' . $search . '%' )
+            ->orWhere('provider', 'like', '%' . $search . '%')
+            ->orWhere('amount', 'like', '%' . $search . '%');
+    }
+
+    public function socialAssistanceRecipients()
+    {
+        return $this->hasMany(SocialAssistanceRecipient::class);
+    }
 }
