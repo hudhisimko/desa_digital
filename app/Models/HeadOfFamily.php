@@ -27,12 +27,7 @@ class HeadOfFamily extends Model
             $query->where('name', 'like', '%' . $search . '%' )
             ->orWhere('email', 'like', '%' . $search . '%' );
         })->orWhere('phone_number', 'like', '%' . $search . '%' )
-            ->orWhere('identity_number', 'like', '%' . $search . '%' );;
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> 851a6ebf494b04cd710262de18112042ddbb9bfb
+            ->orWhere('identity_number', 'like', '%' . $search . '%' );
     }
 
     public function user()
@@ -55,10 +50,5 @@ class HeadOfFamily extends Model
         return $this->hasMany(EventParticipant::class);
     }
 
-<<<<<<< HEAD
-
-=======
-   
->>>>>>> 851a6ebf494b04cd710262de18112042ddbb9bfb
 
 }

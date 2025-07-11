@@ -20,10 +20,6 @@ class FamilyMember extends Model
             'phone_number',
             'occupation',
             'marital_status',
-<<<<<<< HEAD
-    ];
-
-=======
             'relation'
     ];
 
@@ -35,7 +31,7 @@ class FamilyMember extends Model
         })->orWhere('phone_number', 'like', '%' . $search . '%' )
             ->orWhere('identity_number', 'like', '%' . $search . '%' );;
     }
->>>>>>> 851a6ebf494b04cd710262de18112042ddbb9bfb
+
     public function headOfFamily()
     {
         return $this->belongsTo(headOfFamily::class);
