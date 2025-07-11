@@ -23,13 +23,9 @@ return new class extends Migration
             $table->enum('bank',['bri','bni','bca','mandiri']);
             $table->decimal('amount',10,2);
             $table->longText('reason');
-<<<<<<< HEAD
-            $table->bigInteger('account_number');
-            $table->string('proof')->nullable();
-=======
+
             $table->integer('account_number');
             $table->string('proof');
->>>>>>> 851a6ebf494b04cd710262de18112042ddbb9bfb
             $table->enum('status',['pending','approved','rejected'])->default('pending');
 
             $table->softDeletes();

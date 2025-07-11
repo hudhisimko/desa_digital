@@ -22,11 +22,7 @@ return new class extends Migration
 
             $table->string('profile_picture');
             $table->integer('identity_number');
-<<<<<<< HEAD
-            $table->enum('gender',['mail','female']);
-=======
             $table->enum('gender',['male','female']);
->>>>>>> 851a6ebf494b04cd710262de18112042ddbb9bfb
             $table->date('date_of_birth');
             $table->string('phone_number');
             $table->string('occupation');

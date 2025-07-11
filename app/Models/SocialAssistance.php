@@ -19,8 +19,7 @@ class SocialAssistance extends Model
         'description',
         'is_available',
     ];
-<<<<<<< HEAD
-=======
+
 
     protected $casts = [
         'is_available' => 'boolean'
@@ -37,5 +36,5 @@ class SocialAssistance extends Model
     {
         return $this->hasMany(SocialAssistanceRecipient::class);
     }
->>>>>>> 851a6ebf494b04cd710262de18112042ddbb9bfb
+
 }
