@@ -19,7 +19,9 @@ class HeadOfFamilyResource extends JsonResource
             'phone_number' => $this->phone_number,
             'occupation' => $this->occupation,
             'marital_status' => $this->marital_status,
-            'family_members' => FamilyMemberResource::collection($this->familyMember)
+           'family_members' => $this->whenLoaded('familyMembers', function () {
+            return FamilyMemberResource::collection($this->familyMembers);
+            }),
         ];
     }
 }

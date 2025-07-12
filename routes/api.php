@@ -9,9 +9,8 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\HeadOfFamilyController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\EventParticipantController;
 use App\Http\Controllers\FamilyMemberController;
 
 // USER
@@ -22,12 +21,23 @@ Route::get('user/all/paginated', [UserController::class, 'getAllPaginated']);
 Route::apiResource('head-of-family', HeadOfFamilyController::class);
 Route::get('head-of-family/all/paginated', [HeadOfFamilyController::class, 'getAllPaginated']);
 
-
+//SOCIAL ASSISTANCE
 Route::apiResource('social-assistance', SocialAssistanceController::class);
 Route::get('social-assistance/all/paginated', [SocialAssistanceController::class, 'getAllPaginated']);
 
 Route::post('/social-assistance', [SocialAssistanceController::class, 'store']);
 Route::put('/social-assistance/{id}', [SocialAssistanceController::class, 'update']);
+
+//EVENT PARTICIPANT
+Route::get('/event-participant', [EventParticipantController::class, 'getAll']);
+Route::post('/event-participant', [EventParticipantController::class, 'store']);
+Route::get('/event-participant/all/paginated', [EventParticipantController::class, 'getAllPaginated']);
+Route::get('/event-participant/{id}', [EventParticipantController::class, 'show']);
+Route::match(['put', 'patch'], '/event-participant/{id}', [EventParticipantController::class, 'update']);
+Route::delete('/event-participant/{id}', [EventParticipantController::class, 'destroy']);
+
+
+
 
 
 
