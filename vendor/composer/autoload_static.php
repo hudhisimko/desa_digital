@@ -595,6 +595,11 @@ class ComposerStaticInit88970a0117c062eed55fa8728fc43833
     public static $classMap = array (
         'App\\Helpers\\ResponseHelper' => __DIR__ . '/../..' . '/app/Helpers/ResponseHelper.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+<<<<<<< HEAD
+        'App\\Http\\Controllers\\HeadOfFamilyController' => __DIR__ . '/../..' . '/app/Http/Controllers/HeadOfFamilyController.php',
+        'App\\Http\\Controllers\\SocialAssistanceRecipientController' => __DIR__ . '/../..' . '/app/Http/Controllers/SocialAssistanceRecipientController.php',
+        'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
+=======
 
         'App\\Http\\Controllers\\HeadOfFamilyController' => __DIR__ . '/../..' . '/app/Http/Controllers/HeadOfFamilyController.php',
         'App\\Http\\Controllers\\SocialAssistanceController' => __DIR__ . '/../..' . '/app/Http/Controllers/SocialAssistanceController.php',
@@ -611,10 +616,19 @@ class ComposerStaticInit88970a0117c062eed55fa8728fc43833
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
 
 
+>>>>>>> 851a6ebf494b04cd710262de18112042ddbb9bfb
         'App\\Http\\Requests\\HeadOfFamilyStoreRequest' => __DIR__ . '/../..' . '/app/Http/Requests/HeadOfFamilyStoreRequest.php',
         'App\\Http\\Requests\\HeadOfFamilyUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/HeadOfFamilyUpdateRequest.php',
         'App\\Http\\Requests\\UserStoreRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UserStoreRequest.php',
         'App\\Http\\Requests\\UserUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UserUpdateRequest.php',
+<<<<<<< HEAD
+        'App\\Http\\Resources\\HeadOfFamilyResource' => __DIR__ . '/../..' . '/app/Http/Resources/HeadOfFamilyResource.php',
+        'App\\Http\\Resources\\PaginateResource' => __DIR__ . '/../..' . '/app/Http/Resources/PaginateResource.php',
+        'App\\Http\\Resources\\SocialAssistanceRecipientResource' => __DIR__ . '/../..' . '/app/Http/Resources/SocialAssistanceRecipientResource.php',
+        'App\\Http\\Resources\\UserResource' => __DIR__ . '/../..' . '/app/Http/Resources/UserResource.php',
+        'App\\Interfaces\\HeadOfFamilyRepositoryInterface' => __DIR__ . '/../..' . '/app/Interfaces/HeadOfFamilyRepositoryInterface.php',
+        'App\\Interfaces\\SocialAssistanceRecipientRepositoryInterface' => __DIR__ . '/../..' . '/app/Interfaces/SocialAssistanceRecipientRepositoryInterface.php',
+=======
 
 
         'App\\Http\\Resources\\EventResource' => __DIR__ . '/../..' . '/app/Http/Resources/EventResource.php',
@@ -637,6 +651,7 @@ class ComposerStaticInit88970a0117c062eed55fa8728fc43833
 
         'App\\Interfaces\\HeadOfFamilyRepositoryInterface' => __DIR__ . '/../..' . '/app/Interfaces/HeadOfFamilyRepositoryInterface.php',
 
+>>>>>>> 851a6ebf494b04cd710262de18112042ddbb9bfb
         'App\\Interfaces\\UserRepositoryInterface' => __DIR__ . '/../..' . '/app/Interfaces/UserRepositoryInterface.php',
         'App\\Models\\Development' => __DIR__ . '/../..' . '/app/Models/Development.php',
         'App\\Models\\DevelopmentApplicant' => __DIR__ . '/../..' . '/app/Models/DevelopmentApplicant.php',
@@ -651,6 +666,10 @@ class ComposerStaticInit88970a0117c062eed55fa8728fc43833
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\RepositoryServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RepositoryServiceProvider.php',
+<<<<<<< HEAD
+        'App\\Repositories\\HeadOfFamilyRepository' => __DIR__ . '/../..' . '/app/Repositories/HeadOfFamilyRepository.php',
+        'App\\Repositories\\SocialAssistanceRecipientRepository' => __DIR__ . '/../..' . '/app/Repositories/SocialAssistanceRecipientRepository.php',
+=======
 
         'App\\Repositories\\HeadOfFamilyRepository' => __DIR__ . '/../..' . '/app/Repositories/HeadOfFamilyRepository.php',
         'App\\Repositories\\SocialAssistanceRepository' => __DIR__ . '/../..' . '/app/Repositories/SocialAssistanceRepository.php',
@@ -662,6 +681,7 @@ class ComposerStaticInit88970a0117c062eed55fa8728fc43833
 
         'App\\Repositories\\HeadOfFamilyRepository' => __DIR__ . '/../..' . '/app/Repositories/HeadOfFamilyRepository.php',
 
+>>>>>>> 851a6ebf494b04cd710262de18112042ddbb9bfb
         'App\\Repositories\\UserRepository' => __DIR__ . '/../..' . '/app/Repositories/UserRepository.php',
         'App\\Traits\\UUID' => __DIR__ . '/../..' . '/app/Traits/UUID.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
@@ -781,6 +801,14 @@ class ComposerStaticInit88970a0117c062eed55fa8728fc43833
         'Cron\\HoursField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/HoursField.php',
         'Cron\\MinutesField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
+<<<<<<< HEAD
+        'Database\\Factories\\HeadOfFamilyFactory' => __DIR__ . '/../..' . '/database/factories/HeadOfFamilyFactory.php',
+        'Database\\Factories\\SocialAssistanceRecipientFactory' => __DIR__ . '/../..' . '/database/factories/SocialAssistanceRecipientFactory.php',
+        'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
+        'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
+        'Database\\Seeders\\HeadOfFamilySeeder' => __DIR__ . '/../..' . '/database/seeders/HeadOfFamilySeeder.php',
+        'Database\\Seeders\\SocialAssistanceRecipientSeeder' => __DIR__ . '/../..' . '/database/seeders/SocialAssistanceRecipientSeeder.php',
+=======
 
         'Database\\Factories\\HeadOfFamilyFactory' => __DIR__ . '/../..' . '/database/factories/HeadOfFamilyFactory.php',
         'Database\\Factories\\SocialAssistanceFactory' => __DIR__ . '/../..' . '/database/factories/SocialAssistanceFactory.php',
@@ -805,6 +833,7 @@ class ComposerStaticInit88970a0117c062eed55fa8728fc43833
         'Database\\Seeders\\HeadOfFamilySeeder' => __DIR__ . '/../..' . '/database/seeders/HeadOfFamilySeeder.php',
 
 
+>>>>>>> 851a6ebf494b04cd710262de18112042ddbb9bfb
         'Database\\Seeders\\UserSeeder' => __DIR__ . '/../..' . '/database/seeders/UserSeeder.php',
         'DateError' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateError.php',
         'DateException' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateException.php',

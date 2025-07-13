@@ -3,12 +3,17 @@
 namespace App\Models;
 
 use App\Traits\UUID;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class SocialAssistanceRecipient extends Model
 {
+
+    use SoftDeletes, UUID, HasFactory;
+
     use SoftDeletes, UUID;
+
 
     protected $fillable = [
         'social_assistance_id',
@@ -16,19 +21,30 @@ class SocialAssistanceRecipient extends Model
         'bank',
         'amount',
         'reason',
-        'bank',
         'account_number',
         'proof',
         'status',
     ];
-
-    public function socialAssistance()
-    {
-        return $this->belongsTo(SocialAssistance::class);
+    public function scopeSearch($query, $search){
+        return $query->whereHas('headOffamily', function ($query) use ($search){
+            $query->whereHas('user', function ($query) use ($search){
+                $query->where('name', 'like', '%'.$search.'%');
+                 $query->orWhere('email', 'like', '%'.$search.'%');
+            });
+        });
     }
 
-    public function headOfFamily()
-    {
-        return $this->belongsTo(HeadOfFamily::class);
-    }
+   public function socialAssistance()
+{
+    return $this->belongsTo(SocialAssistance::class);
+}
+
+public function headOfFamily()
+{
+    return $this->belongsTo(HeadOfFamily::class);
+}
+
+
+
+
 }

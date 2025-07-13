@@ -8,6 +8,11 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Helpers\\ResponseHelper' => $baseDir . '/app/Helpers/ResponseHelper.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+<<<<<<< HEAD
+    'App\\Http\\Controllers\\HeadOfFamilyController' => $baseDir . '/app/Http/Controllers/HeadOfFamilyController.php',
+    'App\\Http\\Controllers\\SocialAssistanceRecipientController' => $baseDir . '/app/Http/Controllers/SocialAssistanceRecipientController.php',
+    'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
+=======
 
     'App\\Http\\Controllers\\HeadOfFamilyController' => $baseDir . '/app/Http/Controllers/HeadOfFamilyController.php',
     'App\\Http\\Controllers\\SocialAssistanceController' => $baseDir . '/app/Http/Controllers/SocialAssistanceController.php',
@@ -25,10 +30,19 @@ return array(
     'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
 
 
+>>>>>>> 851a6ebf494b04cd710262de18112042ddbb9bfb
     'App\\Http\\Requests\\HeadOfFamilyStoreRequest' => $baseDir . '/app/Http/Requests/HeadOfFamilyStoreRequest.php',
     'App\\Http\\Requests\\HeadOfFamilyUpdateRequest' => $baseDir . '/app/Http/Requests/HeadOfFamilyUpdateRequest.php',
     'App\\Http\\Requests\\UserStoreRequest' => $baseDir . '/app/Http/Requests/UserStoreRequest.php',
     'App\\Http\\Requests\\UserUpdateRequest' => $baseDir . '/app/Http/Requests/UserUpdateRequest.php',
+<<<<<<< HEAD
+    'App\\Http\\Resources\\HeadOfFamilyResource' => $baseDir . '/app/Http/Resources/HeadOfFamilyResource.php',
+    'App\\Http\\Resources\\PaginateResource' => $baseDir . '/app/Http/Resources/PaginateResource.php',
+    'App\\Http\\Resources\\SocialAssistanceRecipientResource' => $baseDir . '/app/Http/Resources/SocialAssistanceRecipientResource.php',
+    'App\\Http\\Resources\\UserResource' => $baseDir . '/app/Http/Resources/UserResource.php',
+    'App\\Interfaces\\HeadOfFamilyRepositoryInterface' => $baseDir . '/app/Interfaces/HeadOfFamilyRepositoryInterface.php',
+    'App\\Interfaces\\SocialAssistanceRecipientRepositoryInterface' => $baseDir . '/app/Interfaces/SocialAssistanceRecipientRepositoryInterface.php',
+=======
 
 
     'App\\Http\\Resources\\EventResource' => $baseDir . '/app/Http/Resources/EventResource.php',
@@ -51,6 +65,7 @@ return array(
 
     'App\\Interfaces\\HeadOfFamilyRepositoryInterface' => $baseDir . '/app/Interfaces/HeadOfFamilyRepositoryInterface.php',
 
+>>>>>>> 851a6ebf494b04cd710262de18112042ddbb9bfb
     'App\\Interfaces\\UserRepositoryInterface' => $baseDir . '/app/Interfaces/UserRepositoryInterface.php',
     'App\\Models\\Development' => $baseDir . '/app/Models/Development.php',
     'App\\Models\\DevelopmentApplicant' => $baseDir . '/app/Models/DevelopmentApplicant.php',
@@ -65,6 +80,10 @@ return array(
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\RepositoryServiceProvider' => $baseDir . '/app/Providers/RepositoryServiceProvider.php',
+<<<<<<< HEAD
+    'App\\Repositories\\HeadOfFamilyRepository' => $baseDir . '/app/Repositories/HeadOfFamilyRepository.php',
+    'App\\Repositories\\SocialAssistanceRecipientRepository' => $baseDir . '/app/Repositories/SocialAssistanceRecipientRepository.php',
+=======
 
     'App\\Repositories\\HeadOfFamilyRepository' => $baseDir . '/app/Repositories/HeadOfFamilyRepository.php',
     'App\\Repositories\\SocialAssistanceRepository' => $baseDir . '/app/Repositories/SocialAssistanceRepository.php',
@@ -76,6 +95,7 @@ return array(
 
     'App\\Repositories\\HeadOfFamilyRepository' => $baseDir . '/app/Repositories/HeadOfFamilyRepository.php',
 
+>>>>>>> 851a6ebf494b04cd710262de18112042ddbb9bfb
     'App\\Repositories\\UserRepository' => $baseDir . '/app/Repositories/UserRepository.php',
     'App\\Traits\\UUID' => $baseDir . '/app/Traits/UUID.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
@@ -195,6 +215,14 @@ return array(
     'Cron\\HoursField' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/HoursField.php',
     'Cron\\MinutesField' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
     'Cron\\MonthField' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
+<<<<<<< HEAD
+    'Database\\Factories\\HeadOfFamilyFactory' => $baseDir . '/database/factories/HeadOfFamilyFactory.php',
+    'Database\\Factories\\SocialAssistanceRecipientFactory' => $baseDir . '/database/factories/SocialAssistanceRecipientFactory.php',
+    'Database\\Factories\\UserFactory' => $baseDir . '/database/factories/UserFactory.php',
+    'Database\\Seeders\\DatabaseSeeder' => $baseDir . '/database/seeders/DatabaseSeeder.php',
+    'Database\\Seeders\\HeadOfFamilySeeder' => $baseDir . '/database/seeders/HeadOfFamilySeeder.php',
+    'Database\\Seeders\\SocialAssistanceRecipientSeeder' => $baseDir . '/database/seeders/SocialAssistanceRecipientSeeder.php',
+=======
 
     'Database\\Factories\\HeadOfFamilyFactory' => $baseDir . '/database/factories/HeadOfFamilyFactory.php',
     'Database\\Factories\\SocialAssistanceFactory' => $baseDir . '/database/factories/SocialAssistanceFactory.php',
@@ -219,6 +247,7 @@ return array(
     'Database\\Seeders\\HeadOfFamilySeeder' => $baseDir . '/database/seeders/HeadOfFamilySeeder.php',
 
 
+>>>>>>> 851a6ebf494b04cd710262de18112042ddbb9bfb
     'Database\\Seeders\\UserSeeder' => $baseDir . '/database/seeders/UserSeeder.php',
     'DateError' => $vendorDir . '/symfony/polyfill-php83/Resources/stubs/DateError.php',
     'DateException' => $vendorDir . '/symfony/polyfill-php83/Resources/stubs/DateException.php',
