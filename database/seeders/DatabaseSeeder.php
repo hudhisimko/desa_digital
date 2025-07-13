@@ -17,6 +17,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call([
+            UserSeeder::class,
+            HeadOfFamilySeeder::class,
+            SocialAssistanceSeeder::class,
+            EventSeeder::class,
+            EventParticipantSeeder::class
+        ]);
 
         // User::factory(10)->create();
 
@@ -31,7 +38,5 @@ class DatabaseSeeder extends Seeder
                 SocialAssistanceSeeder::class,
                 EventSeeder::class,
         ]);
-
-
     }
 }
