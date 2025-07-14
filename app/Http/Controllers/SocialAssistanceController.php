@@ -24,7 +24,6 @@ class SocialAssistanceController extends Controller
     }
 
 
-
     public function index(Request $request)
     {
         try {

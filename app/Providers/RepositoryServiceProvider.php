@@ -2,12 +2,18 @@
 
 namespace App\Providers;
 
+
 use App\Interfaces\DevelopmentRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
+
+use App\Interfaces\EventParticipantRepositoryInterface;
+
 use App\Interfaces\EventRepositoryInterface;
+use App\Http\Controllers\SocialAssistanceRecipientController;
 use App\Interfaces\UserRepositoryInterface;
 use App\Interfaces\HeadOfFamilyRepositoryInterface;
+
 use App\Interfaces\SocialAssistanceRepositoryInterface;
 use App\Interfaces\FamilyMemberRepositoryInterface;
 use App\Repositories\DevelopmentRepository;
@@ -17,12 +23,30 @@ use App\Repositories\HeadOfFamilyRepository;
 use App\Repositories\SocialAssistanceRepository;
 use App\Repositories\FamilyMemberRepository;
 
+use App\Interfaces\SocialAssistanceRecipientRepositoryInterface;
+use App\Repositories\UserRepository;
+use App\Repositories\HeadOfFamilyRepository;
+use App\Repositories\SocialAssistanceRecipientRepository;
+use App\Interfaces\EventRepositoryInterface;
+use App\Interfaces\SocialAssistanceRepositoryInterface;
+use App\Interfaces\FamilyMemberRepositoryInterface;
+use App\Repositories\EventParticipantRepository;
+use App\Repositories\EventRepository;
+use App\Repositories\FamilyMemberRepository;
+use App\Repositories\SocialAssistanceRepository;
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\ServiceProvider;
+use App\Repositories\SocialAssistanceRepository;
+
+
+
 class RepositoryServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
      */
     public function register(): void
+
     {
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
         $this->app->bind(HeadOfFamilyRepositoryInterface::class, HeadOfFamilyRepository::class);
@@ -30,6 +54,23 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(EventRepositoryInterface::class, EventRepository::class);
         $this->app->bind(FamilyMemberRepositoryInterface::class, FamilyMemberRepository::class);
         $this->app->bind(DevelopmentRepositoryInterface::class, DevelopmentRepository::class);
+
+{
+        $this->app->bind(SocialAssistanceRecipientRepositoryInterface::class, SocialAssistanceRecipientRepository::class);
+        $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
+        $this->app->bind(HeadOfFamilyRepositoryInterface::class, HeadOfFamilyRepository::class);
+        $this->app->bind(SocialAssistanceRepositoryInterface::class, SocialAssistanceRepository::class);
+        $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
+        $this->app->bind(HeadOfFamilyRepositoryInterface::class, HeadOfFamilyRepository::class);
+        $this->app->bind(EventRepositoryInterface::class, EventRepository::class);
+        $this->app->bind(FamilyMemberRepositoryInterface::class, FamilyMemberRepository::class);
+        $this->app->bind(EventParticipantRepositoryInterface::class, EventParticipantRepository::class);
+}
+        $this->app->bind(EventRepositoryInterface::class, EventRepository::class);
+        $this->app->bind(FamilyMemberRepositoryInterface::class, FamilyMemberRepository::class);
+
+
+
     }
 
     /**

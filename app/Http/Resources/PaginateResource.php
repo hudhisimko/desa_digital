@@ -7,7 +7,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class PaginateResource extends JsonResource
 {
-    public function __construct($resource, public $resourceClass = null) 
+    public function __construct($resource, public $resourceClass = null)
     {
         parent::__construct($resource);
     }
