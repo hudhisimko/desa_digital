@@ -18,12 +18,8 @@ class DatabaseSeeder extends Seeder
                 UserSeeder::class,
                 HeadOfFamilySeeder::class,
                 SocialAssistanceSeeder::class,
-            ]);
-
-            UserSeeder::class,
-            HeadOfFamilySeeder::class,
-            SocialAssistanceSeeder::class,
-            EventSeeder::class,
+                EventSeeder::class,
+                DevelopmentSeeder::class,
         ]);
 
     }
