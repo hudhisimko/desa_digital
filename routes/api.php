@@ -1,6 +1,15 @@
 <?php
 
 
+use App\Http\Controllers\DevelopmentController;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\HeadOfFamilyController;
+use App\Http\Controllers\SocialAssistanceController;
+
+
 use App\Http\Controllers\HeadOfFamilyController;
 use App\Http\Controllers\SocialAssistanceRecipientController;
 use App\Http\Controllers\UserController;
@@ -8,6 +17,7 @@ use Illuminate\Http\Request;
 use Illuminate\Session\Store;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpKernel\HttpCache\Store as HttpCacheStore;
+
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventParticipantController;
 use App\Http\Controllers\FamilyMemberController;
@@ -21,13 +31,18 @@ Route::get('head-of-family/all/paginated', [HeadOfFamilyController::class, 'getA
 
 
 
-// USER
+
 Route::apiResource('user', UserController::class);
 Route::get('user/all/paginated', [UserController::class, 'getAllPaginated']);
 
-// HEAD OF FAMILY
 Route::apiResource('head-of-family', HeadOfFamilyController::class);
 Route::get('head-of-family/all/paginated', [HeadOfFamilyController::class, 'getAllPaginated']);
+
+
+Route::apiResource('social-assistance', SocialAssistanceController::class);
+Route::get('social-assistance/all/paginated', [SocialAssistanceController::class, 'getAllPaginated']);
+
+
 
 //SOCIAL ASSISTANCE
 Route::apiResource('social-assistance', SocialAssistanceController::class);
@@ -59,13 +74,16 @@ Route::apiResource('social-assistance-recipient', SocialAssistanceRecipientContr
 Route::get('social-assistance-recipient/all/paginated', [SocialAssistanceRecipientController::class, 'getAllPaginated']);
 
 // EVENT
+
 Route::apiResource('event', EventController::class);
 Route::get('event/all/paginated', [EventController::class, 'getAllPaginated']);
-Route::get('/event', [EventController::class, 'index']);
 
-// FAMILY MEMBER
 Route::apiResource('family-member', FamilyMemberController::class);
-Route::get('/family-member/paginated', [FamilyMemberController::class, 'getAllPaginated']);
-Route::get('/family-member', [FamilyMemberController::class, 'index']);
+Route::get('family-member/paginated', [FamilyMemberController::class, 'getAllPaginated']);
+
+Route::apiResource('development', DevelopmentController::class);
+Route::get('event/all/paginated', [DevelopmentController::class, 'getAllPaginated']);
+
+Route::post('/development', [DevelopmentController::class, 'store']);
 
 
