@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\DevelopmentApplicant;
 use App\Models\User;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -30,6 +31,7 @@ class DatabaseSeeder extends Seeder
                 HeadOfFamilySeeder::class,
                 SocialAssistanceSeeder::class,
                 EventSeeder::class,
+                DevelopmentApplicantSeeder::class
         ]);
 
 

@@ -16,15 +16,14 @@ class SocialAssistanceRecipientSeeder extends Seeder
      */
     public function run(): void
     {
-          $families = HeadOfFamily::all();
-        $assistances = SocialAssistance::all();
+       $socialAssistances = SocialAssistance::all();
+       $headOfFamilies = HeadOfFamily::all();
 
-        // Loop setiap kombinasi keluarga dan bantuan
-        foreach ($families as $family) {
-            foreach ($assistances as $assistance) {
+        foreach ($socialAssistances as $socialAssistance) {
+            foreach( $headOfFamilies as $headOfFamily) {
                 SocialAssistanceRecipient::factory()->create([
-                    'head_of_family_id' => $family->id,
-                    'social_assistance_id' => $assistance->id,
+                    'head_of_family_id' =>$headOfFamily->id,
+                    'social_assistance_id' => $socialAssistance->id,
                 ]);
             }
         }
