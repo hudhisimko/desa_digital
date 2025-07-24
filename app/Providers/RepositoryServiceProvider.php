@@ -11,6 +11,7 @@ use App\Interfaces\EventParticipantRepositoryInterface;
 
 use App\Interfaces\EventRepositoryInterface;
 use App\Http\Controllers\SocialAssistanceRecipientController;
+use App\Interfaces\DevelopmentApplicantRepositoryInterface;
 use App\Interfaces\UserRepositoryInterface;
 use App\Interfaces\HeadOfFamilyRepositoryInterface;
 
@@ -37,8 +38,7 @@ use App\Repositories\SocialAssistanceRepository;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\SocialAssistanceRepository;
-
-
+use App\Repositories\DevelopmentApplicantRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -64,13 +64,11 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(HeadOfFamilyRepositoryInterface::class, HeadOfFamilyRepository::class);
         $this->app->bind(EventRepositoryInterface::class, EventRepository::class);
         $this->app->bind(FamilyMemberRepositoryInterface::class, FamilyMemberRepository::class);
+        $this->app->bind(DevelopmentApplicantRepositoryInterface::class,DevelopmentApplicantRepository::class);
         $this->app->bind(EventParticipantRepositoryInterface::class, EventParticipantRepository::class);
 }
         $this->app->bind(EventRepositoryInterface::class, EventRepository::class);
         $this->app->bind(FamilyMemberRepositoryInterface::class, FamilyMemberRepository::class);
-
-
-
     }
 
     /**

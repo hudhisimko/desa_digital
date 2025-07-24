@@ -14,10 +14,10 @@ class DevelopmentResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return [
-            'id' =>$this->id,
-            'thumbnail' => $this->thumbnail,
+         return [
+            'id' => $this->id,
             'name' => $this->name,
+            'thumbnail' => $this->thumbnail,
             'description' => $this->description,
             'person_in_charge' => $this->person_in_charge,
             'start_date' => $this->start_date,

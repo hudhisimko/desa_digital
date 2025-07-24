@@ -17,35 +17,30 @@ use Illuminate\Support\Facades\Log;
 
 class SocialAssistanceRecipientController extends Controller
 {
-    protected SocialAssistanceRecipientRepositoryInterface $socialAssistanceRecipientRepositoryInterface;
+    protected SocialAssistanceRecipientRepositoryInterface $socialAssistanceRecipientRepository;
 
     public function __construct(SocialAssistanceRecipientRepositoryInterface $socialAssistanceRecipientRepository)
     {
-      $this->socialAssistanceRecipientRepositoryInterface = $socialAssistanceRecipientRepository;
+      $this->socialAssistanceRecipientRepository = $socialAssistanceRecipientRepository;
     }
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request)
-    {
+{
+    try {
+        $socialAssistanceRecipients = $this->socialAssistanceRecipientRepository->getAll(
+            $request->search,
+            $request->limit,
+            true
+        );
 
-        try {
-            $socialAssistanceRecipients = $this->socialAssistanceRecipientRepositoryInterface->getAll(
-                $request->search,
-                $request->limit,
-                true
-            );
-             return ResponseHelper::jsonResponse(
-             true,
-             "Data Penerima Bantuan Sosial Berhasil Diambil",
-             SocialAssistanceRecipientResource::collection($socialAssistanceRecipients),
-             200
-);
-
-        } catch (\Exception $e) {
-             return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
-        }
+        return ResponseHelper::jsonResponse( true, "Data Penerima Bantuan Sosial Berhasil Diambil",SocialAssistanceRecipientResource::collection($socialAssistanceRecipients),200);
+    } catch (\Exception $e) {
+        return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
     }
+}
+
 
     public function getAllPaginated(Request $request)
     {
@@ -55,7 +50,7 @@ class SocialAssistanceRecipientController extends Controller
        ]);
 
         try {
-            $socialAssistanceRecipients = $this->socialAssistanceRecipientRepositoryInterface->getAllPaginated(
+            $socialAssistanceRecipients = $this->socialAssistanceRecipientRepository->getAllPaginated(
                 $request['search'] ?? null,
                 $request['row_per_page']
 
@@ -76,7 +71,7 @@ class SocialAssistanceRecipientController extends Controller
        $validated = $request->validated();
 
         try {
-           $socialAssistanceRecipients = $this->socialAssistanceRecipientRepositoryInterface->create($validated);
+           $socialAssistanceRecipients = $this->socialAssistanceRecipientRepository->create($validated);
 
 
          return ResponseHelper::jsonResponse( true,"Data Penerima Bantuan Sosial Berhasil Dibuat", new SocialAssistanceRecipientResource ($socialAssistanceRecipients),201);
@@ -93,7 +88,7 @@ class SocialAssistanceRecipientController extends Controller
    public function show(string $id)
 {
     try {
-        $recipient = $this->socialAssistanceRecipientRepositoryInterface->getById($id);
+        $recipient = $this->socialAssistanceRecipientRepository->getById($id);
 
         if (!$recipient) {
             return ResponseHelper::jsonResponse(false, 'Data penerimaan bantuan tidak ditemukan', null, 404);
@@ -118,12 +113,12 @@ class SocialAssistanceRecipientController extends Controller
          $request = $request->validated();
 
         try {
-            $recipient = $this->socialAssistanceRecipientRepositoryInterface->getById($id);
+            $recipient = $this->socialAssistanceRecipientRepository->getById($id);
 
         if (!$recipient) {
             return ResponseHelper::jsonResponse(false, 'Data penerimaan bantuan tidak ditemukan', null, 404);
         }
-           $socialAssistanceRecipients = $this->socialAssistanceRecipientRepositoryInterface->update(
+           $socialAssistanceRecipients = $this->socialAssistanceRecipientRepository->update(
             $id,
             $request
            );
@@ -143,12 +138,12 @@ class SocialAssistanceRecipientController extends Controller
     {
 
         try {
-            $recipient = $this->socialAssistanceRecipientRepositoryInterface->getById($id);
+            $recipient = $this->socialAssistanceRecipientRepository->getById($id);
 
         if (!$recipient) {
             return ResponseHelper::jsonResponse(false, 'Data penerimaan bantuan tidak ditemukan', null, 404);
         }
-           $socialAssistanceRecipients = $this->socialAssistanceRecipientRepositoryInterface->delete($id);
+           $socialAssistanceRecipients = $this->socialAssistanceRecipientRepository->delete($id);
 
 
          return ResponseHelper::jsonResponse( true,"Data Penerima Bantuan Sosial Berhasil Dihapus", null,200);

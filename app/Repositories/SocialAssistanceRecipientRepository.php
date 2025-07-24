@@ -10,32 +10,26 @@ use Illuminate\Support\Facades\DB;
 
 class SocialAssistanceRecipientRepository implements SocialAssistanceRecipientRepositoryInterface
 {
-    public function getAll
-    (
-        ?string $search,
-        ?int $limit,
-        bool $execute
-    )
+    public function getAll(?string $search, ?int $limit, bool $execute)
     {
-       $query = SocialAssistanceRecipient::where(function ($query) use ($search){
-          if ($search){
-            $query->search($search);
-          }
-       });
+        $query = SocialAssistanceRecipient::where(function ($query) use ($search){
+            if ($search){
+                $query->search($search);
+            }
+        });
 
-       if ($limit) {
-        $query->take($limit);
-       }
+        if($limit) {
+            $query->take($limit);
+        }
 
-       if ($execute){
-        return $query->get();
-       }
-       return $query;
+        if($execute){
+            return $query->get();
+        }
+
+        return $query;
     }
-    public function getAllPaginated(
-        ?string $search,
-        ?int $rowPerPage
-    )
+
+    public function getAllPaginated(?string $search, ?int $rowPerPage)
     {
         $query = $this->getAll(
             $search,
@@ -65,10 +59,8 @@ class SocialAssistanceRecipientRepository implements SocialAssistanceRecipientRe
             $socialAssistanceRecipient->amount = $data ['amount'];
             $socialAssistanceRecipient->reason = $data ['reason'];
             $socialAssistanceRecipient->account_number = $data ['account_number'];
+            $socialAssistanceRecipient->proof = $data ['proof'] ?? '';
 
-            if (isset($data['proof'])) {
-                $socialAssistanceRecipient->proof = $data ['proof'];
-            }
 
              if (isset($data['status'])) {
                 $socialAssistanceRecipient->status = $data ['status'];
