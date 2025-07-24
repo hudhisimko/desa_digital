@@ -3,19 +3,12 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
-use App\Models\User;
+use Database\Factories\UserFactory;
 
 class UserSeeder extends Seeder
 {
     public function run(): void
     {
-        User::create([
-            'id' => 1,
-            'name' => 'Head User',
-            'email' => 'head@example.com',
-            'password' => Hash::make('password') // <- pakai hash
-        ]);
+        UserFactory::new()->count(15)->create();
     }
 }
