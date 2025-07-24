@@ -22,7 +22,7 @@ class DevelopmentResource extends JsonResource
             'person_in_charge' => $this->person_in_charge,
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,
-            'amount' => $this->amount,
+            'amount' => (float)(string)$this->amount,
             'status' => $this->status,
         ];
     }
