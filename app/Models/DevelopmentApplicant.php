@@ -5,24 +5,32 @@ namespace App\Models;
 use App\Traits\UUID;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class DevelopmentApplicant extends Model
 {
-    use SoftDeletes,UUID;
+    use HasFactory, SoftDeletes,UUID;
 
     protected $fillable = [
         'development_id',
         'user_id',
-        'status',
-    ];        
+        'status'
+    ];
+
+    public function scopeSearch($query, $search)
+    {
+        return $query->whereHas('user', function($query) use ($search){
+            $query->where('name', 'like', '%' .$search. '%');
+        });
+        }
 
     public function development()
     {
         return $this->belongsTo(Development::class);
     }
 
-    public function user() 
+    public function user()
     {
-        return $this->belongsTo(User::class);    
+        return $this->belongsTo(User::class);
     }
 }

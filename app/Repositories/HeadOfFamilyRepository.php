@@ -15,6 +15,8 @@ class HeadOfFamilyRepository implements HeadOfFamilyRepositoryInterface
         ?int $limit,
         bool $execute
     ) {
+
+             {
         $query = HeadOfFamily::where(function ($query) use ($search) {
             if ($search) {
                 $query->search($search);
@@ -24,28 +26,33 @@ class HeadOfFamilyRepository implements HeadOfFamilyRepositoryInterface
         $query->orderBy('created_at','desc');
 
         if ($limit) {
+            //Mengambil beberapa berdasarkan limit
             $query->take($limit);
         }
 
         if ($execute) {
-            return $query->get();
+
+            //Mengambil beberapa berdasarkan limit
         }
 
         return $query;
     }
+}
 
     public function getAllPaginated(
+
         ?string $search,
         ?int $rowPerPage
-    ){
+    )  {
       $query = $this->getAll(
         $search,
         $rowPerPage,
         false
-      );
+            );
 
       return $query->paginate($rowPerPage);
-    }
+       }
+
 
     public function getById(string $id)
     {
@@ -77,6 +84,8 @@ class HeadOfFamilyRepository implements HeadOfFamilyRepositoryInterface
             $headOfFamily->phone_number = $data['phone_number'];
             $headOfFamily->occupation = $data['occupation'];
             $headOfFamily->marital_status = $data['marital_status'];
+            $headOfFamily->save();
+
 
             $headOfFamily->save();
 
@@ -109,12 +118,16 @@ class HeadOfFamilyRepository implements HeadOfFamilyRepositoryInterface
             $headOfFamily->marital_status = $data['marital_status'];
             $headOfFamily->save();
 
+
+
             $userRepository = new UserRepository;
 
             $userRepository->update($headOfFamily->user_id, [
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => isset( $data['password']) ? bcrypt($data['password']) : $headOfFamily->user->password
+
+
             ]);
 
             DB::commit();
@@ -136,6 +149,10 @@ class HeadOfFamilyRepository implements HeadOfFamilyRepositoryInterface
 
             $headOfFamily->delete();
 
+
+
+
+
             DB::commit();
             return $headOfFamily;
 
@@ -145,5 +162,6 @@ class HeadOfFamilyRepository implements HeadOfFamilyRepositoryInterface
             throw new Exception($e->getMessage());
         }
     }
+
 
 }

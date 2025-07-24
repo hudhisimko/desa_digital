@@ -16,14 +16,20 @@ class SocialAssistanceResource extends JsonResource
     {
         return [
             'id' => $this->id,
+
+
+            'type' => $this->type,
+            'description' => $this->description,
+
+
             'thumbnail' => $this->thumbnail,
             'name' => $this->name,
             'category' => $this->category,
             'amount' => $this->amount,
             'provider' => $this->provider,
-            'description' => $this->description,
-            'is_available' => (bool) $this->is_available,
 
+            'is_available' => (bool) $this->is_available,
+            
         ];
     }
 }

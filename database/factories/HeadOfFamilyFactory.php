@@ -17,6 +17,7 @@ class HeadOfFamilyFactory extends Factory
     public function definition(): array
     {
         return [
+            'user_id' => null, 
             'profile_picture' => $this->faker->imageUrl(),
             'identity_number' => $this->faker->unique()->numberBetween(100000000, 999999999),
             'gender' => $this->faker->randomElement(['male', 'female']),

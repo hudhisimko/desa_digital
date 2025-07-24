@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->decimal('amount',10,2);
-            $table->enum('status',['ongoing','complated'])->default('ongoing');
+            $table->enum('status',['ongoing','completed'])->default('ongoing');
 
             $table->softDeletes();
             $table->timestamps();
@@ -30,7 +30,7 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down(): voidevent
     {
         Schema::dropIfExists('developments');
     }

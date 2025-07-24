@@ -25,6 +25,7 @@ class SocialAssistanceController extends Controller implements HasMiddleware
         $this->socialAssistanceRepository = $socialAssistanceRepository;
 
     }
+
     static function middleware()
     {
         return [
@@ -34,6 +35,10 @@ class SocialAssistanceController extends Controller implements HasMiddleware
             new Middleware(PermissionMiddleware::using(['social-assistance-delete']),only:['destroy']),
         ];
     }
+
+
+
+
     public function index(Request $request)
     {
         try {
