@@ -14,4 +14,9 @@ class ProfileImage extends Model
         'profile_id',
         'image',
     ];
+    public function profile()
+{
+    return $this->belongsTo(Profile::class);
+}
+
 }

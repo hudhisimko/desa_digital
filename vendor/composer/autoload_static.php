@@ -44,6 +44,7 @@ class ComposerStaticInit8c91e30b95c851b7f276ced2f690975a
         'c72349b1fe8d0deeedd3a52e8aa814d8' => __DIR__ . '/..' . '/mockery/mockery/library/helpers.php',
         'ce9671a430e4846b44e1c68c7611f9f5' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'd634523d799d97a8ab4807b650bf5cea' => __DIR__ . '/..' . '/pestphp/pest-plugin-laravel/src/Autoload.php',
+        '377b22b161c09ed6e5152de788ca020a' => __DIR__ . '/..' . '/spatie/laravel-permission/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -96,6 +97,7 @@ class ComposerStaticInit8c91e30b95c851b7f276ced2f690975a
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
             'Symfony\\Component\\Clock\\' => 24,
+            'Spatie\\Permission\\' => 18,
         ),
         'R' => 
         array (
@@ -343,6 +345,10 @@ class ComposerStaticInit8c91e30b95c851b7f276ced2f690975a
         'Symfony\\Component\\Clock\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/clock',
+        ),
+        'Spatie\\Permission\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/laravel-permission/src',
         ),
         'Ramsey\\Uuid\\' => 
         array (
@@ -596,12 +602,20 @@ class ComposerStaticInit8c91e30b95c851b7f276ced2f690975a
     public static $classMap = array (
         'App\\Helpers\\ResponseHelper' => __DIR__ . '/../..' . '/app/Helpers/ResponseHelper.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+
+        'App\\Http\\Controllers\\EventController' => __DIR__ . '/../..' . '/app/Http/Controllers/EventController.php',
+        'App\\Http\\Controllers\\FamilyMemberController' => __DIR__ . '/../..' . '/app/Http/Controllers/FamilyMemberController.php',
+        'App\\Http\\Controllers\\HeadOfFamilyController' => __DIR__ . '/../..' . '/app/Http/Controllers/HeadOfFamilyController.php',
+        'App\\Http\\Controllers\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileController.php',
+        'App\\Http\\Controllers\\SocialAssistanceController' => __DIR__ . '/../..' . '/app/Http/Controllers/SocialAssistanceController.php',
+
         'App\\Http\\Controllers\\DevelopmentApplicantController' => __DIR__ . '/../..' . '/app/Http/Controllers/DevelopmentApplicantController.php',
         'App\\Http\\Controllers\\EventController' => __DIR__ . '/../..' . '/app/Http/Controllers/EventController.php',
         'App\\Http\\Controllers\\FamilyMemberController' => __DIR__ . '/../..' . '/app/Http/Controllers/FamilyMemberController.php',
         'App\\Http\\Controllers\\HeadOfFamilyController' => __DIR__ . '/../..' . '/app/Http/Controllers/HeadOfFamilyController.php',
         'App\\Http\\Controllers\\SocialAssistanceController' => __DIR__ . '/../..' . '/app/Http/Controllers/SocialAssistanceController.php',
         'App\\Http\\Controllers\\SocialAssistanceRecipientController' => __DIR__ . '/../..' . '/app/Http/Controllers/SocialAssistanceRecipientController.php',
+
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Requests\\DevelopmentApplicantRequest' => __DIR__ . '/../..' . '/app/Http/Requests/DevelopmentApplicantRequest.php',
         'App\\Http\\Requests\\DevelopmentApplicantUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/DevelopmentApplicantUpdateRequest.php',
@@ -611,18 +625,35 @@ class ComposerStaticInit8c91e30b95c851b7f276ced2f690975a
         'App\\Http\\Requests\\FamilyMemberUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/FamilyMemberUpdateRequest.php',
         'App\\Http\\Requests\\HeadOfFamilyStoreRequest' => __DIR__ . '/../..' . '/app/Http/Requests/HeadOfFamilyStoreRequest.php',
         'App\\Http\\Requests\\HeadOfFamilyUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/HeadOfFamilyUpdateRequest.php',
+
+        'App\\Http\\Requests\\ProfileStoreRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProfileStoreRequest.php',
+        'App\\Http\\Requests\\ProfileUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProfileUpdateRequest.php',
+
         'App\\Http\\Requests\\SocialAssistanceRecipientStoreRequest' => __DIR__ . '/../..' . '/app/Http/Requests/SocialAssistanceRecipientStoreRequest.php',
         'App\\Http\\Requests\\SocialAssistanceRecipientUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/SocialAssistanceRecipientUpdateRequest.php',
+
         'App\\Http\\Requests\\SocialAssistanceStoreRequest' => __DIR__ . '/../..' . '/app/Http/Requests/SocialAssistanceStoreRequest.php',
         'App\\Http\\Requests\\SocialAssistanceUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/SocialAssistanceUpdateRequest.php',
         'App\\Http\\Requests\\UserStoreRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UserStoreRequest.php',
         'App\\Http\\Requests\\UserUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UserUpdateRequest.php',
+
         'App\\Http\\Resources\\DevelopmentApplicantResource' => __DIR__ . '/../..' . '/app/Http/Resources/DevelopmentApplicantResource.php',
         'App\\Http\\Resources\\DevelopmentResource' => __DIR__ . '/../..' . '/app/Http/Resources/DevelopmentResource.php',
+
         'App\\Http\\Resources\\EventResource' => __DIR__ . '/../..' . '/app/Http/Resources/EventResource.php',
         'App\\Http\\Resources\\FamilyMemberResource' => __DIR__ . '/../..' . '/app/Http/Resources/FamilyMemberResource.php',
         'App\\Http\\Resources\\HeadOfFamilyResource' => __DIR__ . '/../..' . '/app/Http/Resources/HeadOfFamilyResource.php',
         'App\\Http\\Resources\\PaginateResource' => __DIR__ . '/../..' . '/app/Http/Resources/PaginateResource.php',
+
+        'App\\Http\\Resources\\ProfileImageResource' => __DIR__ . '/../..' . '/app/Http/Resources/ProfileImageResource.php',
+        'App\\Http\\Resources\\ProfileResource' => __DIR__ . '/../..' . '/app/Http/Resources/ProfileResource.php',
+        'App\\Http\\Resources\\SocialAssistanceResource' => __DIR__ . '/../..' . '/app/Http/Resources/SocialAssistanceResource.php',
+        'App\\Http\\Resources\\UserResource' => __DIR__ . '/../..' . '/app/Http/Resources/UserResource.php',
+        'App\\Interfaces\\EventRepositoryInterface' => __DIR__ . '/../..' . '/app/Interfaces/EventRepositoryInterface.php',
+        'App\\Interfaces\\FamilyMemberRepositoryInterface' => __DIR__ . '/../..' . '/app/Interfaces/FamilyMemberRepositoryInterface.php',
+        'App\\Interfaces\\HeadOfFamilyRepositoryInterface' => __DIR__ . '/../..' . '/app/Interfaces/HeadOfFamilyRepositoryInterface.php',
+        'App\\Interfaces\\ProfileRepositoryInterface' => __DIR__ . '/../..' . '/app/Interfaces/ProfileRepositoryInterface.php',
+
         'App\\Http\\Resources\\SocialAssistanceRecipientResource' => __DIR__ . '/../..' . '/app/Http/Resources/SocialAssistanceRecipientResource.php',
         'App\\Http\\Resources\\SocialAssistanceResource' => __DIR__ . '/../..' . '/app/Http/Resources/SocialAssistanceResource.php',
         'App\\Http\\Resources\\UserResource' => __DIR__ . '/../..' . '/app/Http/Resources/UserResource.php',
@@ -631,6 +662,7 @@ class ComposerStaticInit8c91e30b95c851b7f276ced2f690975a
         'App\\Interfaces\\FamilyMemberRepositoryInterface' => __DIR__ . '/../..' . '/app/Interfaces/FamilyMemberRepositoryInterface.php',
         'App\\Interfaces\\HeadOfFamilyRepositoryInterface' => __DIR__ . '/../..' . '/app/Interfaces/HeadOfFamilyRepositoryInterface.php',
         'App\\Interfaces\\SocialAssistanceRecipientRepositoryInterface' => __DIR__ . '/../..' . '/app/Interfaces/SocialAssistanceRecipientRepositoryInterface.php',
+
         'App\\Interfaces\\SocialAssistanceRepositoryInterface' => __DIR__ . '/../..' . '/app/Interfaces/SocialAssistanceRepositoryInterface.php',
         'App\\Interfaces\\UserRepositoryInterface' => __DIR__ . '/../..' . '/app/Interfaces/UserRepositoryInterface.php',
         'App\\Models\\Development' => __DIR__ . '/../..' . '/app/Models/Development.php',
@@ -646,11 +678,18 @@ class ComposerStaticInit8c91e30b95c851b7f276ced2f690975a
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\RepositoryServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RepositoryServiceProvider.php',
+
+        'App\\Repositories\\EventRepository' => __DIR__ . '/../..' . '/app/Repositories/EventRepository.php',
+        'App\\Repositories\\FamilyMemberRepository' => __DIR__ . '/../..' . '/app/Repositories/FamilyMemberRepository.php',
+        'App\\Repositories\\HeadOfFamilyRepository' => __DIR__ . '/../..' . '/app/Repositories/HeadOfFamilyRepository.php',
+        'App\\Repositories\\ProfileRepository' => __DIR__ . '/../..' . '/app/Repositories/ProfileRepository.php',
+
         'App\\Repositories\\DevelopmentApplicantRepository' => __DIR__ . '/../..' . '/app/Repositories/DevelopmentApplicantRepository.php',
         'App\\Repositories\\EventRepository' => __DIR__ . '/../..' . '/app/Repositories/EventRepository.php',
         'App\\Repositories\\FamilyMemberRepository' => __DIR__ . '/../..' . '/app/Repositories/FamilyMemberRepository.php',
         'App\\Repositories\\HeadOfFamilyRepository' => __DIR__ . '/../..' . '/app/Repositories/HeadOfFamilyRepository.php',
         'App\\Repositories\\SocialAssistanceRecipientRepository' => __DIR__ . '/../..' . '/app/Repositories/SocialAssistanceRecipientRepository.php',
+
         'App\\Repositories\\SocialAssistanceRepository' => __DIR__ . '/../..' . '/app/Repositories/SocialAssistanceRepository.php',
         'App\\Repositories\\UserRepository' => __DIR__ . '/../..' . '/app/Repositories/UserRepository.php',
         'App\\Traits\\UUID' => __DIR__ . '/../..' . '/app/Traits/UUID.php',
@@ -771,13 +810,17 @@ class ComposerStaticInit8c91e30b95c851b7f276ced2f690975a
         'Cron\\HoursField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/HoursField.php',
         'Cron\\MinutesField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
+
         'Database\\Factories\\DevelopmentApplicantFactory' => __DIR__ . '/../..' . '/database/factories/DevelopmentApplicantFactory.php',
         'Database\\Factories\\DevelopmentFactory' => __DIR__ . '/../..' . '/database/factories/DevelopmentFactory.php',
+
         'Database\\Factories\\EventFactory' => __DIR__ . '/../..' . '/database/factories/EventFactory.php',
         'Database\\Factories\\FamilyMemberFactory' => __DIR__ . '/../..' . '/database/factories/FamilyMemberFactory.php',
         'Database\\Factories\\HeadOfFamilyFactory' => __DIR__ . '/../..' . '/database/factories/HeadOfFamilyFactory.php',
         'Database\\Factories\\SocialAssistanceFactory' => __DIR__ . '/../..' . '/database/factories/SocialAssistanceFactory.php',
+
         'Database\\Factories\\SocialAssistanceRecipientFactory' => __DIR__ . '/../..' . '/database/factories/SocialAssistanceRecipientFactory.php',
+
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
         'Database\\Seeders\\DevelopmentApplicantSeeder' => __DIR__ . '/../..' . '/database/seeders/DevelopmentApplicantSeeder.php',
@@ -6399,6 +6442,41 @@ class ComposerStaticInit8c91e30b95c851b7f276ced2f690975a
         'SebastianBergmann\\Type\\UnknownType' => __DIR__ . '/..' . '/sebastian/type/src/type/UnknownType.php',
         'SebastianBergmann\\Type\\VoidType' => __DIR__ . '/..' . '/sebastian/type/src/type/VoidType.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'Spatie\\Permission\\Commands\\CacheReset' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Commands/CacheReset.php',
+        'Spatie\\Permission\\Commands\\CreatePermission' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Commands/CreatePermission.php',
+        'Spatie\\Permission\\Commands\\CreateRole' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Commands/CreateRole.php',
+        'Spatie\\Permission\\Commands\\Show' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Commands/Show.php',
+        'Spatie\\Permission\\Commands\\UpgradeForTeams' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Commands/UpgradeForTeams.php',
+        'Spatie\\Permission\\Contracts\\Permission' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Contracts/Permission.php',
+        'Spatie\\Permission\\Contracts\\PermissionsTeamResolver' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Contracts/PermissionsTeamResolver.php',
+        'Spatie\\Permission\\Contracts\\Role' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Contracts/Role.php',
+        'Spatie\\Permission\\Contracts\\Wildcard' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Contracts/Wildcard.php',
+        'Spatie\\Permission\\DefaultTeamResolver' => __DIR__ . '/..' . '/spatie/laravel-permission/src/DefaultTeamResolver.php',
+        'Spatie\\Permission\\Events\\PermissionAttached' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Events/PermissionAttached.php',
+        'Spatie\\Permission\\Events\\PermissionDetached' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Events/PermissionDetached.php',
+        'Spatie\\Permission\\Events\\RoleAttached' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Events/RoleAttached.php',
+        'Spatie\\Permission\\Events\\RoleDetached' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Events/RoleDetached.php',
+        'Spatie\\Permission\\Exceptions\\GuardDoesNotMatch' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Exceptions/GuardDoesNotMatch.php',
+        'Spatie\\Permission\\Exceptions\\PermissionAlreadyExists' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Exceptions/PermissionAlreadyExists.php',
+        'Spatie\\Permission\\Exceptions\\PermissionDoesNotExist' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Exceptions/PermissionDoesNotExist.php',
+        'Spatie\\Permission\\Exceptions\\RoleAlreadyExists' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Exceptions/RoleAlreadyExists.php',
+        'Spatie\\Permission\\Exceptions\\RoleDoesNotExist' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Exceptions/RoleDoesNotExist.php',
+        'Spatie\\Permission\\Exceptions\\UnauthorizedException' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Exceptions/UnauthorizedException.php',
+        'Spatie\\Permission\\Exceptions\\WildcardPermissionInvalidArgument' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Exceptions/WildcardPermissionInvalidArgument.php',
+        'Spatie\\Permission\\Exceptions\\WildcardPermissionNotImplementsContract' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Exceptions/WildcardPermissionNotImplementsContract.php',
+        'Spatie\\Permission\\Exceptions\\WildcardPermissionNotProperlyFormatted' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Exceptions/WildcardPermissionNotProperlyFormatted.php',
+        'Spatie\\Permission\\Guard' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Guard.php',
+        'Spatie\\Permission\\Middleware\\PermissionMiddleware' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Middleware/PermissionMiddleware.php',
+        'Spatie\\Permission\\Middleware\\RoleMiddleware' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Middleware/RoleMiddleware.php',
+        'Spatie\\Permission\\Middleware\\RoleOrPermissionMiddleware' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Middleware/RoleOrPermissionMiddleware.php',
+        'Spatie\\Permission\\Models\\Permission' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Models/Permission.php',
+        'Spatie\\Permission\\Models\\Role' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Models/Role.php',
+        'Spatie\\Permission\\PermissionRegistrar' => __DIR__ . '/..' . '/spatie/laravel-permission/src/PermissionRegistrar.php',
+        'Spatie\\Permission\\PermissionServiceProvider' => __DIR__ . '/..' . '/spatie/laravel-permission/src/PermissionServiceProvider.php',
+        'Spatie\\Permission\\Traits\\HasPermissions' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Traits/HasPermissions.php',
+        'Spatie\\Permission\\Traits\\HasRoles' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Traits/HasRoles.php',
+        'Spatie\\Permission\\Traits\\RefreshesPermissionCache' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Traits/RefreshesPermissionCache.php',
+        'Spatie\\Permission\\WildcardPermission' => __DIR__ . '/..' . '/spatie/laravel-permission/src/WildcardPermission.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'Symfony\\Component\\Clock\\Clock' => __DIR__ . '/..' . '/symfony/clock/Clock.php',
         'Symfony\\Component\\Clock\\ClockAwareTrait' => __DIR__ . '/..' . '/symfony/clock/ClockAwareTrait.php',
