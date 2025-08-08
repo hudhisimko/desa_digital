@@ -1,0 +1,176 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Helpers\ResponseHelper;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\SocialAssistanceRecipientStoreRequest;
+use App\Http\Requests\SocialAssistanceRecipientUpdateRequest;
+use App\Http\Resources\SocialAssistanceRecipientResource;
+use App\Interfaces\SocialAssistanceRecipientRepositoryInterface;
+use App\Models\SocialAssistance;
+use Illuminate\Http\Request;
+use App\Http\Resources\PaginatedResource;
+use App\Http\Resources\PaginateResource;
+use App\Http\Resources\SocialAssistanceResource;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Support\Facades\Log;
+use Spatie\Permission\Middleware\PermissionMiddleware;
+
+class SocialAssistanceRecipientController extends Controller implements HasMiddleware
+{
+    protected SocialAssistanceRecipientRepositoryInterface $socialAssistanceRecipientRepositoryInterface;
+
+    public function __construct(SocialAssistanceRecipientRepositoryInterface $socialAssistanceRecipientRepository)
+    {
+      $this->socialAssistanceRecipientRepositoryInterface = $socialAssistanceRecipientRepository;
+    }
+
+    public static function middleware()
+    {
+        return [
+            new Middleware(PermissionMiddleware::using(['social-assistance-recipient-list|social-assistance-recipient-create|social-assistance-recipient-edit|social-assistance-recipient-delete']), only: ['index','getAllPaginated','show']),
+            new Middleware(PermissionMiddleware::using(['social-assistance-recipient-create']), only: ['store']),
+            new middleware(PermissionMiddleware::using(['social-assistance-recipient-edit']), only: ['update']),
+            new middleware(PermissionMiddleware::using(['social-assistance-recipient-delete']), only: ['destroy']),
+        ];
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function index(Request $request)
+    {
+
+        try {
+            $socialAssistanceRecipients = $this->socialAssistanceRecipientRepositoryInterface->getAll(
+                $request->search,
+                $request->limit,
+                true
+            );
+             return ResponseHelper::jsonResponse(
+             true,
+             "Data Penerima Bantuan Sosial Berhasil Diambil",
+             SocialAssistanceRecipientResource::collection($socialAssistanceRecipients),
+             200
+);
+
+        } catch (\Exception $e) {
+             return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
+        }
+    }
+
+    public function getAllPaginated(Request $request)
+    {
+       $request = $request->validate([
+        'search' => 'nullable|string',
+        'row_per_page' => 'required|integer'
+       ]);
+
+        try {
+            $socialAssistanceRecipients = $this->socialAssistanceRecipientRepositoryInterface->getAllPaginated(
+                $request['search'] ?? null,
+                $request['row_per_page']
+
+            );
+
+            return ResponseHelper::jsonResponse( true,"Data Penerima Bantuan Sosial Berhasil Diambil",PaginateResource::make($socialAssistanceRecipients, SocialAssistanceRecipientResource::class),200);
+        } catch (\Exception $e) {
+             return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
+        }
+
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(SocialAssistanceRecipientStoreRequest $request)
+    {
+       $validated = $request->validated();
+
+        try {
+           $socialAssistanceRecipients = $this->socialAssistanceRecipientRepositoryInterface->create($validated);
+
+
+         return ResponseHelper::jsonResponse( true,"Data Penerima Bantuan Sosial Berhasil Dibuat", new SocialAssistanceRecipientResource ($socialAssistanceRecipients),201);
+        } catch (\Exception $e) {
+             return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
+        }
+
+
+    }
+
+    /**
+     * Display the specified resource.
+     */
+   public function show(string $id)
+{
+    try {
+        $recipient = $this->socialAssistanceRecipientRepositoryInterface->getById($id);
+
+        if (!$recipient) {
+            return ResponseHelper::jsonResponse(false, 'Data penerimaan bantuan tidak ditemukan', null, 404);
+        }
+
+        return ResponseHelper::jsonResponse(
+            true,
+            'Data penerimaan bantuan berhasil ditemukan',
+            new SocialAssistanceRecipientResource($recipient),
+            200
+        );
+    } catch (\Exception $e) {
+        return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
+    }
+}
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(SocialAssistanceRecipientUpdateRequest $request, string $id)
+    {
+         $request = $request->validated();
+
+        try {
+            $recipient = $this->socialAssistanceRecipientRepositoryInterface->getById($id);
+
+        if (!$recipient) {
+            return ResponseHelper::jsonResponse(false, 'Data penerimaan bantuan tidak ditemukan', null, 404);
+        }
+           $socialAssistanceRecipients = $this->socialAssistanceRecipientRepositoryInterface->update(
+            $id,
+            $request
+           );
+
+
+         return ResponseHelper::jsonResponse( true,"Data Penerima Bantuan Sosial Berhasil Diupdate", new SocialAssistanceRecipientResource ($socialAssistanceRecipients),200);
+        } catch (\Exception $e) {
+             return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
+        }
+
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+
+        try {
+            $recipient = $this->socialAssistanceRecipientRepositoryInterface->getById($id);
+
+        if (!$recipient) {
+            return ResponseHelper::jsonResponse(false, 'Data penerimaan bantuan tidak ditemukan', null, 404);
+        }
+           $socialAssistanceRecipients = $this->socialAssistanceRecipientRepositoryInterface->delete($id);
+
+
+         return ResponseHelper::jsonResponse( true,"Data Penerima Bantuan Sosial Berhasil Dihapus", null,200);
+        } catch (\Exception $e) {
+             return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
+        }
+
+    }
+
+    }
+
