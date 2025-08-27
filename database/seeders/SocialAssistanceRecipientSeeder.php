@@ -1,0 +1,33 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\SocialAssistanceRecipient;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use App\Models\HeadOfFamily;
+use App\Models\SocialAssistance;
+
+
+class SocialAssistanceRecipientSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        $socialAssistaces = SocialAssistance::all();
+        $headOfFamilies = HeadOfFamily::all();
+
+        // Loop setiap kombinasi keluarga dan bantuan
+        foreach ($socialAssistaces as $socialAssistace) {
+            foreach ($headOfFamilies as $headOfFamily) {
+                SocialAssistanceRecipient::factory()->create([
+                    'head_of_family_id' => $headOfFamily->id,
+                    'social_assistance_id' => $socialAssistace->id
+                ]);
+            }
+        }
+
+    }
+}
