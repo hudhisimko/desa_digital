@@ -45,25 +45,32 @@ class HeadOfFamilyController extends Controller implements HasMiddleware
         }
     }
 
-    public function getAllPaginated(Request $request )
-    {
-         $request = $request->validate([
-             'search' => 'nullable|string',
-             'row_per_page' => 'required|integer'
-         ]);
+public function getAllPaginated(Request $request)
+{
+    $validated = $request->validate([
+        'search' => 'nullable|string',
+        'row_per_page' => 'required|integer',
+        'page' => 'nullable|integer'
+    ]);
 
-        try {
-            $headOfFamilies = $this->headOfFamilyRepository->getAllPaginated(
-                $request['search'] ?? null,
-                $request['row_per_page'],
-                true
-            );
-            return ResponseHelper::jsonResponse(true, 'Data Kepala Keluarga Berhasil Diambil', PaginateResource::make($headOfFamilies, HeadOfFamilyResource::class), 200);
-        } catch (\Exception $e) {
-            return ResponseHelper::jsonResponse(false, 'Data Kepala Keluarga Gagal Diambil', null, 500);
-        }
+    try {
+        $headOfFamilies = $this->headOfFamilyRepository->getAllPaginated(
+            $validated['search'] ?? null,
+            $validated['row_per_page'],
+            true
+        );
 
+        return ResponseHelper::jsonResponse(
+            true,
+            'Data Kepala Keluarga Berhasil Diambil',
+            PaginateResource::make($headOfFamilies, HeadOfFamilyResource::class),
+            200
+        );
+    } catch (\Exception $e) {
+        return ResponseHelper::jsonResponse(false, 'Data Kepala Keluarga Gagal Diambil', null, 500);
     }
+}
+
 
     /**
      * Store a newly created resource in storage.
